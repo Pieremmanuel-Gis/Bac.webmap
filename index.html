@@ -148,21 +148,6 @@
 
         function style_Champs_1_0(feature) {
             switch(String(feature.properties['Producteur'])) {
-                default:
-                    return {
-                pane: 'pane_Champs_1',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(131,217,18,1.0)',
-                interactive: true,
-            }
-                    break;
                 case 'Beauchamp Roland':
                     return {
                 pane: 'pane_Champs_1',
@@ -468,22 +453,6 @@
                 interactive: true,
             }
                     break;
-                default:
-                    return {
-                pane: 'pane_Fermes_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(42,42,236,1.0)',
-                interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_Fermes_3');
@@ -564,6 +533,22 @@
         });
         bounds_group.addLayer(layer_Stockage_4);
         map.addLayer(layer_Stockage_4);
+        var overlaysTree = [
+            {label: '<img src="legend/Stockage_4.png" /> Stockage', layer: layer_Stockage_4},
+            {label: 'Fermes<br /><table><tr><td style="text-align: center;"><img src="legend/Fermes_3_Conditionnel0.png" /></td><td>Conditionnel</td></tr><tr><td style="text-align: center;"><img src="legend/Fermes_3_Défavorable1.png" /></td><td>Défavorable</td></tr><tr><td style="text-align: center;"><img src="legend/Fermes_3_Incertain2.png" /></td><td>Incertain</td></tr><tr><td style="text-align: center;"><img src="legend/Fermes_3_Ouvert3.png" /></td><td>Ouvert</td></tr><tr><td style="text-align: center;"><img src="legend/Fermes_3_Prospect4.png" /></td><td>Prospect</td></tr><tr><td style="text-align: center;"><img src="legend/Fermes_3_Utilisateur5.png" /></td><td>Utilisateur</td></tr></table>', layer: layer_Fermes_3},
+            {label: '<img src="legend/Chemin_2.png" /> Chemin', layer: layer_Chemin_2},
+            {label: 'Champs<br /><table><tr><td style="text-align: center;"><img src="legend/Champs_1_BeauchampRoland0.png" /></td><td>Beauchamp Roland</td></tr><tr><td style="text-align: center;"><img src="legend/Champs_1_GeoffrionMathieu1.png" /></td><td>Geoffrion Mathieu</td></tr><tr><td style="text-align: center;"><img src="legend/Champs_1_HebertAlain2.png" /></td><td>Hebert Alain</td></tr><tr><td style="text-align: center;"><img src="legend/Champs_1_HebertBenoitetEric3.png" /></td><td>Hebert Benoit et Eric</td></tr><tr><td style="text-align: center;"><img src="legend/Champs_1_HurtubiseLéo4.png" /></td><td>Hurtubise Léo</td></tr><tr><td style="text-align: center;"><img src="legend/Champs_1_MarleauEric5.png" /></td><td>Marleau Eric</td></tr><tr><td style="text-align: center;"><img src="legend/Champs_1_NapertBruno6.png" /></td><td>Napert Bruno</td></tr><tr><td style="text-align: center;"><img src="legend/Champs_1_SéguinNicholas7.png" /></td><td>Séguin Nicholas</td></tr></table>', layer: layer_Champs_1},
+            {label: "Google Satellite Hybrid", layer: layer_GoogleSatelliteHybrid_0},]
+        var lay = L.control.layers.tree(null, overlaysTree,{
+            //namedToggle: true,
+            //selectorBack: false,
+            //closedSymbol: '&#8862; &#x1f5c0;',
+            //openedSymbol: '&#8863; &#x1f5c1;',
+            //collapseAll: 'Collapse all',
+            //expandAll: 'Expand all',
+            collapsed: true,
+        });
+        lay.addTo(map);
         setBounds();
         </script>        
     </body>
