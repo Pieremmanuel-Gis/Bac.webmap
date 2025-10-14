@@ -35,14 +35,14 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet.photon.js"></script>
-        <script src="data/Champs_0.js"></script>
-        <script src="data/Chemin_1.js"></script>
-        <script src="data/Fermes_2.js"></script>
-        <script src="data/Stockage_3.js"></script>
+        <script src="data/Champs_1.js"></script>
+        <script src="data/Chemin_2.js"></script>
+        <script src="data/Fermes_3.js"></script>
+        <script src="data/Stockage_4.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[44.7245715368,-75.47952750014319],[45.84322736258522,-72.32739992661182]]);
+        }).fitBounds([[44.979298311319056,-75.05720447268084],[45.86530637722756,-72.55979372361162]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -113,7 +113,18 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        function pop_Champs_0(feature, layer) {
+        map.createPane('pane_GoogleSatelliteHybrid_0');
+        map.getPane('pane_GoogleSatelliteHybrid_0').style.zIndex = 400;
+        var layer_GoogleSatelliteHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatelliteHybrid_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+        });
+        layer_GoogleSatelliteHybrid_0;
+        map.addLayer(layer_GoogleSatelliteHybrid_0);
+        function pop_Champs_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Ferme" colspan="2"><strong>Ferme</strong><br />' + (feature.properties['Ferme'] !== null ? autolinker.link(String(feature.properties['Ferme']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -135,11 +146,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Champs_0_0(feature) {
+        function style_Champs_1_0(feature) {
             switch(String(feature.properties['Producteur'])) {
                 default:
                     return {
-                pane: 'pane_Champs_0',
+                pane: 'pane_Champs_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -154,7 +165,7 @@
                     break;
                 case 'Beauchamp Roland':
                     return {
-                pane: 'pane_Champs_0',
+                pane: 'pane_Champs_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -169,7 +180,7 @@
                     break;
                 case 'Geoffrion Mathieu':
                     return {
-                pane: 'pane_Champs_0',
+                pane: 'pane_Champs_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -184,7 +195,7 @@
                     break;
                 case 'Hebert Alain':
                     return {
-                pane: 'pane_Champs_0',
+                pane: 'pane_Champs_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -199,7 +210,7 @@
                     break;
                 case 'Hebert Benoit et Eric':
                     return {
-                pane: 'pane_Champs_0',
+                pane: 'pane_Champs_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -214,7 +225,7 @@
                     break;
                 case 'Hurtubise Léo':
                     return {
-                pane: 'pane_Champs_0',
+                pane: 'pane_Champs_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -229,7 +240,7 @@
                     break;
                 case 'Marleau Eric':
                     return {
-                pane: 'pane_Champs_0',
+                pane: 'pane_Champs_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -244,7 +255,7 @@
                     break;
                 case 'Napert Bruno':
                     return {
-                pane: 'pane_Champs_0',
+                pane: 'pane_Champs_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -259,7 +270,7 @@
                     break;
                 case 'Séguin Nicholas':
                     return {
-                pane: 'pane_Champs_0',
+                pane: 'pane_Champs_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -274,21 +285,21 @@
                     break;
             }
         }
-        map.createPane('pane_Champs_0');
-        map.getPane('pane_Champs_0').style.zIndex = 400;
-        map.getPane('pane_Champs_0').style['mix-blend-mode'] = 'normal';
-        var layer_Champs_0 = new L.geoJson(json_Champs_0, {
+        map.createPane('pane_Champs_1');
+        map.getPane('pane_Champs_1').style.zIndex = 401;
+        map.getPane('pane_Champs_1').style['mix-blend-mode'] = 'normal';
+        var layer_Champs_1 = new L.geoJson(json_Champs_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Champs_0',
-            layerName: 'layer_Champs_0',
-            pane: 'pane_Champs_0',
-            onEachFeature: pop_Champs_0,
-            style: style_Champs_0_0,
+            dataVar: 'json_Champs_1',
+            layerName: 'layer_Champs_1',
+            pane: 'pane_Champs_1',
+            onEachFeature: pop_Champs_1,
+            style: style_Champs_1_0,
         });
-        bounds_group.addLayer(layer_Champs_0);
-        map.addLayer(layer_Champs_0);
-        function pop_Chemin_1(feature, layer) {
+        bounds_group.addLayer(layer_Champs_1);
+        map.addLayer(layer_Champs_1);
+        function pop_Chemin_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Producteur" colspan="2"><strong>Producteur</strong><br />' + (feature.properties['Producteur'] !== null ? autolinker.link(String(feature.properties['Producteur']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -304,9 +315,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Chemin_1_0() {
+        function style_Chemin_2_0() {
             return {
-                pane: 'pane_Chemin_1',
+                pane: 'pane_Chemin_2',
                 opacity: 1,
                 color: 'rgba(225,89,137,1.0)',
                 dashArray: '',
@@ -317,21 +328,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Chemin_1');
-        map.getPane('pane_Chemin_1').style.zIndex = 401;
-        map.getPane('pane_Chemin_1').style['mix-blend-mode'] = 'normal';
-        var layer_Chemin_1 = new L.geoJson(json_Chemin_1, {
+        map.createPane('pane_Chemin_2');
+        map.getPane('pane_Chemin_2').style.zIndex = 402;
+        map.getPane('pane_Chemin_2').style['mix-blend-mode'] = 'normal';
+        var layer_Chemin_2 = new L.geoJson(json_Chemin_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Chemin_1',
-            layerName: 'layer_Chemin_1',
-            pane: 'pane_Chemin_1',
-            onEachFeature: pop_Chemin_1,
-            style: style_Chemin_1_0,
+            dataVar: 'json_Chemin_2',
+            layerName: 'layer_Chemin_2',
+            pane: 'pane_Chemin_2',
+            onEachFeature: pop_Chemin_2,
+            style: style_Chemin_2_0,
         });
-        bounds_group.addLayer(layer_Chemin_1);
-        map.addLayer(layer_Chemin_1);
-        function pop_Fermes_2(feature, layer) {
+        bounds_group.addLayer(layer_Chemin_2);
+        map.addLayer(layer_Chemin_2);
+        function pop_Fermes_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Ferme" colspan="2"><strong>Ferme</strong><br />' + (feature.properties['Ferme'] !== null ? autolinker.link(String(feature.properties['Ferme']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -359,11 +370,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Fermes_2_0(feature) {
+        function style_Fermes_3_0(feature) {
             switch(String(feature.properties['Intérêt'])) {
                 case 'Conditionnel':
                     return {
-                pane: 'pane_Fermes_2',
+                pane: 'pane_Fermes_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -379,7 +390,7 @@
                     break;
                 case 'Défavorable':
                     return {
-                pane: 'pane_Fermes_2',
+                pane: 'pane_Fermes_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -395,7 +406,7 @@
                     break;
                 case 'Incertain':
                     return {
-                pane: 'pane_Fermes_2',
+                pane: 'pane_Fermes_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -411,7 +422,7 @@
                     break;
                 case 'Ouvert':
                     return {
-                pane: 'pane_Fermes_2',
+                pane: 'pane_Fermes_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -427,7 +438,7 @@
                     break;
                 case 'Prospect':
                     return {
-                pane: 'pane_Fermes_2',
+                pane: 'pane_Fermes_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -443,7 +454,7 @@
                     break;
                 case 'Utilisateur':
                     return {
-                pane: 'pane_Fermes_2',
+                pane: 'pane_Fermes_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -459,7 +470,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_Fermes_2',
+                pane: 'pane_Fermes_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -475,27 +486,27 @@
                     break;
             }
         }
-        map.createPane('pane_Fermes_2');
-        map.getPane('pane_Fermes_2').style.zIndex = 402;
-        map.getPane('pane_Fermes_2').style['mix-blend-mode'] = 'normal';
-        var layer_Fermes_2 = new L.geoJson(json_Fermes_2, {
+        map.createPane('pane_Fermes_3');
+        map.getPane('pane_Fermes_3').style.zIndex = 403;
+        map.getPane('pane_Fermes_3').style['mix-blend-mode'] = 'normal';
+        var layer_Fermes_3 = new L.geoJson(json_Fermes_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Fermes_2',
-            layerName: 'layer_Fermes_2',
-            pane: 'pane_Fermes_2',
-            onEachFeature: pop_Fermes_2,
+            dataVar: 'json_Fermes_3',
+            layerName: 'layer_Fermes_3',
+            pane: 'pane_Fermes_3',
+            onEachFeature: pop_Fermes_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Fermes_2_0(feature));
+                return L.circleMarker(latlng, style_Fermes_3_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Fermes_2);
-        map.addLayer(layer_Fermes_2);
-        function pop_Stockage_3(feature, layer) {
+        bounds_group.addLayer(layer_Fermes_3);
+        map.addLayer(layer_Fermes_3);
+        function pop_Stockage_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Producteur" colspan="2"><strong>Producteur</strong><br />' + (feature.properties['Producteur'] !== null ? autolinker.link(String(feature.properties['Producteur']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -517,9 +528,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Stockage_3_0() {
+        function style_Stockage_4_0() {
             return {
-                pane: 'pane_Stockage_3',
+                pane: 'pane_Stockage_4',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -533,26 +544,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Stockage_3');
-        map.getPane('pane_Stockage_3').style.zIndex = 403;
-        map.getPane('pane_Stockage_3').style['mix-blend-mode'] = 'normal';
-        var layer_Stockage_3 = new L.geoJson(json_Stockage_3, {
+        map.createPane('pane_Stockage_4');
+        map.getPane('pane_Stockage_4').style.zIndex = 404;
+        map.getPane('pane_Stockage_4').style['mix-blend-mode'] = 'normal';
+        var layer_Stockage_4 = new L.geoJson(json_Stockage_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Stockage_3',
-            layerName: 'layer_Stockage_3',
-            pane: 'pane_Stockage_3',
-            onEachFeature: pop_Stockage_3,
+            dataVar: 'json_Stockage_4',
+            layerName: 'layer_Stockage_4',
+            pane: 'pane_Stockage_4',
+            onEachFeature: pop_Stockage_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Stockage_3_0(feature));
+                return L.circleMarker(latlng, style_Stockage_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Stockage_3);
-        map.addLayer(layer_Stockage_3);
+        bounds_group.addLayer(layer_Stockage_4);
+        map.addLayer(layer_Stockage_4);
         setBounds();
         </script>        
     </body>
